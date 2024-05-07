@@ -76,19 +76,6 @@ const Index = () => {
 
     const checkCollision = () => {
       const [head] = snake.slice(-1);
-      const body = snake.slice(0, -1);
-      const collidedWithItself = body.some((segment) => segment.x === head.x && segment.y === head.y);
-
-      if (collidedWithItself) {
-        toast({
-          title: "Game Over",
-          status: "error",
-          duration: 2000,
-          isClosable: true,
-        });
-        return;
-      }
-
       if (head.x === food.x && head.y === food.y) {
         setSnake((prev) => [...prev, food]);
         placeFood();
